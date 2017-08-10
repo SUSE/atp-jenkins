@@ -1,0 +1,8 @@
+
+# /etc/systemd/system/jenkins-proxy.socket
+
+[Socket]
+ListenStream=80
+
+[Install]
+WantedBy=sockets.target

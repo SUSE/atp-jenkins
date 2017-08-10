@@ -1,0 +1,23 @@
+
+# /etc/systemd/system/jenkins.service
+
+[Unit]
+SourcePath=/etc/init.d/jenkins
+Description=LSB: Jenkins Automation Server
+Before=multi-user.target graphical.target
+After=remote-fs.target network-online.target nss-lookup.target time-sync.target sendmail.service
+Wants=remote-fs.target network-online.target nss-lookup.target
+
+[Service]
+IgnoreSIGPIPE=no
+KillMode=mixed
+PIDFile=/run/jenkins.pid
+PermissionsStartOnly=true
+Restart=no
+TimeoutSec=5min
+Type=forking
+ExecStartPre=/usr/bin/mkdir -p /data/jenkins
+ExecStartPre=/usr/bin/chown -R jenkins:jenkins /data/jenkins
+ExecStart=/etc/init.d/jenkins start
+ExecStop=/etc/init.d/jenkins stop
+ExecReload=/etc/init.d/jenkins reload
