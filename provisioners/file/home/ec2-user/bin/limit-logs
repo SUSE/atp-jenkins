@@ -1,4 +1,3 @@
 #!/bin/bash
-cd /data/jenkins/jobs
-sudo find . -type f -name '*log' -size +15M \
-    -exec truncate --size 15M {} \;
+find /data/jenkins/jobs -type f -name '*log' -size +15M \
+    -execdir truncate --size 15M {} \;
