@@ -1,0 +1,4 @@
+#!/bin/bash
+cd /data/jenkins/jobs
+sudo find . -type f -name '*log' -size +15M \
+    -exec truncate --size 15M {} \;
