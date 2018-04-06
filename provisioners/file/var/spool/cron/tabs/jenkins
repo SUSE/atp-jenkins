@@ -1,0 +1,2 @@
+# This is the master file
+43 * * * * /bin/bash /usr/local/bin/limit-logs
