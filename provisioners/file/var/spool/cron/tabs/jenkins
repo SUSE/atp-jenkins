@@ -1,2 +1,2 @@
 # This is the master file
-43 * * * * /bin/bash /home/ec2-user/bin/limit-logs
+43 * * * * /bin/bash /usr/local/bin/limit-logs
